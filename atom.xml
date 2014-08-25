@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Godel]]></title>
+  <link href="https://github.com/macezx/godel/atom.xml" rel="self"/>
+  <link href="https://github.com/macezx/godel/"/>
+  <updated>2014-08-25T23:40:21+12:00</updated>
+  <id>https://github.com/macezx/godel/</id>
+  <author>
+    <name><![CDATA[alex]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Matrix]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/25/matrix/"/>
+    <updated>2014-08-25T23:10:54+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/25/matrix</id>
+    <content type="html"><![CDATA[<p><img src="https://github.com/macezx/godel/images/2014-08-25-matrix/matrix.jpg" alt="matrix" /></p>
+
+<p>The Matrix showed us a traditional perspective of computation theory, which is a hierarchical world and ruled by concrete mapping. Everything have some purpose and it must be mapped to something, even THE ONE. And almost 14 years passed since the first Matrix.<!--more--></p>
+
+<p>We still don’t have a algorithm or thesis of creating consciousness, in other term, self-awareness, or free will. I think it hardly can be called free will if you could create one.
+Formal logic is one way of describe how we deduce and reasoning, however, machine can deduce or “reasoning” on some level of data based on the rule we programed into them.</p>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-matrix/her.jpg" alt="" /></p>
+
+<p>Statistics and probability are method we used to realize systems which are so complicated or complex that we have no idea of how to realize. It works in physics. But there are differences between a physical world and a mental world. In physical world, for every object which has same physical properties, same equations apply, mostly. In mental world, symbols have different meanings in different context and have subjective explaination.</p>
+
+<p>So, suppose we all are models trained with different data sample, therefore, with same input, we will produce different outcome.</p>
+
+<p>Maybe, that is how we think…</p>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-matrix/trans.jpg" alt="Transcendence" /></p>
+
+<p>Her and Transcendence are possible and understandable, if we train the model with right algorithms and data. And if we can build the algorithm into it, like a turing machine in every computer and program, of course it will evolve itself.</p>
+
+<p>And we can assure, if the machine is not trained by some ill-purpose sample, it will have moral sense and a normal mind.</p>
+
+<p>So, did I just conclude that Free Will is bull shit? No one can accept this. I also can not accept that we all are machines in some way. However, is it just very absurd or is it so objective that our subjective ego can not accept it.</p>
+
+<p>Ok, maybe all of us are just our ego…</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[LSI]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/25/lsi/"/>
+    <updated>2014-08-25T22:54:41+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/25/lsi</id>
+    <content type="html"><![CDATA[<p>Last week I was here <a href="http://www.meetup.com/Natural-Language-Processing-in-NZ/events/195174732/">Natural Language Processing in NZ</a>.</p>
+
+<p>Someone asked a question, is there any existed library or solution which can extract certain information out of a natural language dataset of a specific topic, for example, to find objective facts and subjective sentimental information  out of a bunch of customer complaints.<!--more--></p>
+
+<p>I was doing something similar in this realm, and I think <a href="http://en.wikipedia.org/wiki/Latent_semantic_indexing">LSI</a> or <a href="https://code.google.com/p/word2vec/">Word2Vec</a> is the best solution of this problem now. But my poor english speaking could not match either my confidence or LSI’s power, my explanation of LSI was so terrible that someone gave me a few hints very politely and cryptically. </p>
+
+<p>I felt sorry for LSI, it was not its fault that I didn’t present it in a proper way. Thanks to <a href="http://www.meetup.com/Natural-Language-Processing-in-NZ/members/11036321/">Alyona</a> and everyone in the meetup, I appreciate the opportunity to meet nice people and interesting ideas there. So, I’d like to explain myself again.</p>
+
+<p>We have been trying to build different models of natural language. The problem of querying natural language dataset is the problem of how to build a model which could interpret a query into results. The question raised at last meetup was how to build such a model which can extract information from natural language dataset based on specific syntactic structure and some specific semantics.</p>
+
+<p>We have plenty natural language parsers now, so I guess syntactic structure is not the problem here.</p>
+
+<p>As for semantics, there are some rule-based approach, such as, <a href="http://en.wikipedia.org/wiki/WordNet">WordNet</a> , <a href="http://en.wikipedia.org/wiki/FrameNet">FrameNet</a>,  however, I found it was difficult to map a word to similar words in semantics because a word usaually has multiple meanings, and there is no way to find the right semantics of a word in a specific context with these approach. And you could end up with different results with different meaning of a word. Furthermore, there is not any threshold which can determine how far you can go in a WordNet graph, at least not in a mathematically decidable way.</p>
+
+<p>LSI is a tool of finding similarity among documents, it stems from <a href="http://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a>. After mapping all documents into a space,  we could find similarities between documents in different dimension.  And of course we can get a distance between any two words in a specific dimension.</p>
+
+<p><a href="https://code.google.com/p/word2vec/">Word2Vec</a>  is based on the same idea but the algorithm is different.</p>
+
+<p>With these tools, by training a model with a dataset of some topics, we can determine the distance of any two words in a specific dataset(or topic) with this model. Then we can map a query into a set of sentences with this similarity or distance in respect to the specific topic.</p>
+
+<p>LSI or similar algorithm is actually another piece of the puzzle.</p>
+
+<p>’&#8217;’Note’’’
+We still have to deal with the problem of how to model multi meanings of a word</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Kolmogorov复杂性]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/25/kolmogorov-complexity/"/>
+    <updated>2014-08-25T22:38:55+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/25/kolmogorov-complexity</id>
+    <content type="html"><![CDATA[<p>原文-<a href="http://en.wikipedia.org/wiki/Kolmogorov_complexity">wiki</a></p>
+
+<p>看Kolmogorov复杂性看到云里雾里，于是干脆把wiki上的翻译了一下。<!--more--></p>
+
+<p>[toc]</p>
+
+<p>Chaitin complexity, algorithmic entropy, program-size complexity</p>
+
+<hr />
+
+<h1 id="section">定义</h1>
+<p>Kolmogorov 复杂性可被定义到任意数学对象，为简化本文的范围，限制到字符串。必须首先为字符串指定一个描述语言。这种描述语言可以基于任意计算机编程语言。如果$P$是一个程序，输出字符串$x$，则$P$是$x$的一个 <strong>描述</strong> 。描述的长度只是$P$作为字母串的长度，再乘与每个字母的bit数。</p>
+
+<p>另外，我们可以选择一个图灵机编码，这里 <strong>编码</strong> 指一个把每个图灵机$M$关联到一个bit串$&lt;M&gt;$的函数。假如$M$是一个图灵机，对于输入$w$，输出字符串$x$，则字符串的联合$&lt;M&gt;w$则为$x$的一个 <strong>描述</strong> 。为了进行理论上的分析，这个方法更适合于构造详细的正式证明，且通常被研究性文本所采用。本文中，我们讨论一种非正式的方法。</p>
+
+<p>任意串$s$至少有一个 <strong>描述</strong> ，即程序:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="groovy"><span class="line"><span class="n">function</span> <span class="nf">GenerateFixedString</span><span class="o">()</span>
+</span><span class="line">    <span class="k">return</span> <span class="n">s</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>如果$s$的描述，$d(s)$，长度最小，即使用最少的bit数,即称 $d(s)$ 为 $s$ 的 <strong>最小描述</strong> 。因此，$d(s)$ 的长度(即，描述中的bit数)即为 $s$ 的 <strong>Kolmogorov</strong> 复杂性，记为 $K(s)$ 。用符号表示，</p>
+
+<p>$
+K(s)=|d(s)|
+$</p>
+
+<p>最小描述的长度取决于所选择的描述语言；但是改变描述语言的效果是有范围的(一个结果称之为 <em>invariance</em> 定理)。</p>
+
+<hr />
+
+<h1 id="invariance-">Invariance 定理</h1>
+
+<h2 id="section-1">非正式方法</h2>
+
+<p>从下面这些方面讲，存在一些描述语言是最优的：用某个描述语言得到的对某个对象的描述，可以将其连同一个固定的头信息放到最优描述语言中。头信息只取决于所用的语言，不受对象的描述影响，或者对象本身。
+下面是最优描述语言的例子。一个描述由两个部分组成：</p>
+
+<ul>
+  <li>描述另一个描述语言的部分</li>
+  <li>用这种语言描述的对象部分</li>
+</ul>
+
+<p>更技术性的术语中，第一个部分是一个计算机程序，第二个部分是能让程序输出此对象的输入。
+Invariance定理如下：任意描述语言$L$,连同头信息，最优描述语言至少等于$L$的效率。</p>
+
+<p><strong>证明：</strong> </p>
+
+<p>通过先把 $L$ 表述成一个计算机程序 $P$ (第一个部分)，然后用原描述D作为程序的输入(第二个部分)，可以把$L$中的任意一个描述$D$转换到最优语言。新的描述$D\prime$的长度为(近似地)：</p>
+
+<p>$|D\prime|=|P| + |D|$</p>
+
+<p>$P$的长度固定且不取决于$D$。因此，最多有一个固定的开销，且与被描述的对象无关。因此，最优语言一般最多是附加的固定开销。</p>
+
+<h2 id="section-2">更正式些的方法</h2>
+
+<p><strong>定理</strong>： </p>
+
+<p>如果 $K1$ 和 $K2$ 是对于图灵完备的描述语言 $L1$ 和 $L2$ 的复杂性函数,那么有一个常量 $c$ – $c$ 只取决于选择 $L1$ 还是 $L2$ – 使得</p>
+
+<p>$ \forall s. - c \leq K1(s) - K2(s) \leq c. $</p>
+
+<p><strong>证明：</strong></p>
+
+<p>根据对称性，有某个常量$c$使得对于所有串$s$</p>
+
+<p>$K1(s) \leq K2(s) + c$</p>
+
+<p>假设有$L1$语言的程序作为$L2$的解释器：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">function</span> <span class="nf">InterpretLanguage</span><span class="o">(</span><span class="n">string</span> <span class="n">p</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>$p$ 为 $L2$ 语言的程序。解释器的特征由以下属性决定:</p>
+
+<ul>
+  <li>对输入 $p$ 运行 InterpreLanguage 返回 $p$ 的执行结果</li>
+</ul>
+
+<p>因此，如果 $P$ 是一个 $L2$ 程序，是 $s$ 的最小描述，那么 $InterpreteLanguage(P)$ 返回串 $s$ 。$s$ 的描述的长度是：</p>
+
+<ol>
+  <li>
+    <p>InterpreLanguage程序的长度，即常量 $c$；</p>
+  </li>
+  <li>
+    <p>$P$ 的长度，即 $K2(s) $</p>
+  </li>
+</ol>
+
+<p>以上二者之和。复杂性的上限得到证明。</p>
+
+<hr />
+
+<h1 id="section-3">历史与环境</h1>
+
+<p>算法信息理论是计算机科学的一个领域，研究对于字符串（或其他数据结构)的Kolmogorov复杂性和其他复杂性度量。</p>
+
+<p>Kolmogorov复杂性的概念和理论基于一个关键的定理，此定理首先被Ray Solomonoff发现，于1960年发表，在<em>“A Preliminary Report on a General Theory of Inductive Inference”</em> 中，作为他发明的 <em>算法概率</em> 的一部分得到描述。在1964年出版的 <em>“A Formal Theory of Inductive Inference”</em> 中，他给出了一个更完整的描述，在 <em>Information And Control</em> 的第一部分和第二部分。</p>
+
+<p>Andery Kolmogorov后来在1965，<em>Proglems Inform. Transmission</em> 上独立发表了这个定理。Gregory Chaitin也在 <em>J.ACM</em> 上提出了他的定理 - Chaitin的论文于1966年10月提交并修改于1968年12月，引用了Solomonoff和Kolmogorov的论文。</p>
+
+<p>定理表述，把字符串从其描述(编码)解码的算法当中，存在一个最优的算法。此算法，对于所有字符串，它可以使得编码可以与其他算法允许的编码一样短，到一个附加的取决于算法但并不取决于字符串自身的常量。Solomonoff用这个算法和其允许的编码长度，定义了一个字符串的<em>“普遍概率”</em>，字符串的后续数字的归纳推理可以基于此概率。Kolmogorov使用这个定理定义了几个字符串函数，包括，复杂性，随机性和信息。</p>
+
+<p>Kolmogorov知道Solomonoff的工作时，他知道了Solomonoff 优先。几年来，比起在西方世界，Solomonoff的工作在苏联更多人知道。然而，科学界的一般共识是把这类复杂性归功于Kolmogorov，他关注序列的随机性，而算法概率归功于Solomonoff，Solomonoff 专注于用他发明的普遍优先概率分布去做预测。在更广泛的包含描述复杂性和概率的领域中，这个领域则通常称为Kolmogorov复杂性。</p>
+
+<p>还有几个其他Kolmogorov复杂性或者算法信息的变体。应用最广泛的一个基于self-delimiting program，主要归功于 Leonid Levin。</p>
+
+<p>对Kolmogorov复杂性的一个不证自明的方法基于 Blum 公理，由Mark Burgin在Andrey Kolmogorov发表的论文中引入。（TODO:??)</p>
+
+<hr />
+
+<h1 id="section-4">基本结论</h1>
+
+<p>下面的讨论中，$K(s)$是字符串$s$的复杂性。</p>
+
+<p>不难看出，字符串的最小描述不能比它自身更长 – 输出s的程序GenerateFixedString是一个固定的大于s的数量。</p>
+
+<p><strong>定理：</strong></p>
+
+<p>存在一个常量$c$，使得</p>
+
+<p>$\forall s. K(s) \leq |s| + c$</p>
+
+<h2 id="kolmogorov">Kolmogorov复杂性的不可计算</h2>
+
+<p><strong>定理：</strong></p>
+
+<p>存在有任意大Kolmogorov复杂性的字符串。形式化表述：对于每个属于自然数的数$n$, 有一个字符串 $s$，$K(s) \geq n$。</p>
+
+<p><strong>证明：</strong> </p>
+
+<p>否则所有无限多的可能的字符串可以由有限多的复杂性低于$n$ bit的程序产生。</p>
+
+<p><strong>定理：</strong> </p>
+
+<p>K不是一个可计算函数。换句话说，没有程序可以接受字符串$s$作为输入，产生一个整数$K(s)$作为输出。</p>
+
+<p>下面的非直接的证明使用了类似 <em>Pascal</em> 的语言表示程序；为简化证明，假设其描述(即解释器)长度为1,400,000bit。为得到矛盾，假设有这样一个程序，</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">function</span> <span class="nf">KolmogorovComplexity</span><span class="o">(</span><span class="n">string</span> <span class="n">s</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>接受$s$作为输入，返回$K(s)$；为简化证明，假设长度为7,000,000,000bit。思考长度为1,288bit的程序：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">function</span> <span class="nf">GenerateComplexString</span><span class="o">()</span>
+</span><span class="line">    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="nl">infinity:</span>
+</span><span class="line">        <span class="k">for</span> <span class="n">each</span> <span class="n">string</span> <span class="n">s</span> <span class="n">of</span> <span class="n">length</span> <span class="n">exactly</span> <span class="n">i</span>
+</span><span class="line">            <span class="k">if</span> <span class="nf">KolmogorovComplexity</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="mi">8000000000</span>
+</span><span class="line">                <span class="k">return</span> <span class="n">s</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>使用KolmogorovComplexity作为子程序，尝试每个字符串，由最短的开始，直到返回一个字符串，其Kolmogorov复杂性至少是8,000,000,000bit，即，字符串不能由任意短于8,000,000,000bit的程序产生。但是，上面产生$s$的程序长度仅仅是7,001,401,288 bit，得到矛盾。(如果KolmogorovComplexity的代码更短一些，矛盾仍然存在。更长一些的话，则GenerateComplexString的常量可以任意改变。)</p>
+
+<p>上面的证明用了和Berry悖论一样的矛盾：”The smallest positive integer that can not be defined in fewer than twenty English words”。通过从停机问题 $H$归约，同样可以用来显示$K$的不可计算性，因为$K$和$H$是图灵等价的。</p>
+
+<p>有一个引理，在编程语言社区叫做”全雇佣定理”，说的是没有完美的对长度进行优化的编译器。</p>
+
+<h2 id="kolmogorov-1">Kolmogorov复杂性的链式法则</h2>
+
+<p>Klmogorov复杂性的链式法则：</p>
+
+<p>$
+K(X,Y) = K(X)+K(Y|X) + O(log(K(X,Y)))
+$</p>
+
+<p>表述产生$X$和$Y$的最短程序，比产生$X$的程序加上对给定的$X$产生$Y$的程序，不会多于对它所取的对数。</p>
+
+<hr />
+
+<h1 id="section-5">压缩</h1>
+
+<p>计算K(s)的上限是很直接的 - 只要用某个方法压缩字符串$s$,用特定语言实现相应的解压缩程序，然后把解压缩程序与压缩后的字符串连接起来，再测量其长度即可。</p>
+
+<p>$c$ 是一个整数，如果对字符串 $s$，存在一个描述，其长度不超过  $ |s|-c $ bit，则 $s$ 对于 $c$ 是 <strong>可压缩</strong> 的。否则，$s$ 对于 $c$ 是不可压缩的。不能被1压缩的字符串简单地称为不可压缩 - 根据鸽巢原理，鸽巢原理所以适用是因为每个被压缩串只映射到一个未压缩串，不可压缩串一定存在，因为长度为$n$的，$2^n$bit的串只有$2^n-1$个更短的串存在，即，长度（0,1,…,n-1)小于$n$的串。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>同样原因，从不能对他们高度压缩这个方面看来，很多串是复杂的 – 比起</td>
+      <td>s</td>
+      <td>，他们的$K(s)$不是很小。要更精确的的话，则固定一个n的值。有长度为$n$的$2^n$个bit串。此空间上的bit串的一致概率分布准确地分派相等的权重$2^{-n}$到每个长度为$n$的字符串。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>定理:</strong></p>
+
+<p>长度为n的bit串的空间上的一致概率分布，使得字符串对于$c$不可压缩的概率至少是$1-2^{-c+1}+2^{-m}$。</p>
+
+<p>要证明这个定理，注意长度不超过$n-c$的描述的数量由以下几何级数指定：</p>
+
+<p>$
+1+2+2^n+ … +2^{n-c}=2^{n-c+1}-1
+$</p>
+
+<p>有至少$2^n-2^{n-c+1}+1$个长度为n的bit串对于$c$是不可压缩的。要得到此概率，则用它除与$2^n$.</p>
+
+<hr />
+
+<h1 id="chaitin">Chaitin的不完备定理</h1>
+<p>【略】</p>
+
+<hr />
+
+<h1 id="section-6">最小消息长度</h1>
+<p>【略】</p>
+
+<hr />
+
+<h1 id="kolmogorov-2">Kolmogorov随机性</h1>
+<p>【略】</p>
+
+<hr />
+
+<h1 id="section-7">与熵的关系</h1>
+<p>【略】</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Halting Problem]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/25/halting-problem/"/>
+    <updated>2014-08-25T22:34:59+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/25/halting-problem</id>
+    <content type="html"><![CDATA[<p>图灵著名的停机问题对于软件开发者而已是非常熟悉的。下面简单描述停机问题：</p>
+
+<blockquote>
+  <p>假设给你一个计算机程序的源代码，也给你所有程序要用的数据，文件，硬盘，DVD等等，所有它需要处理的东西。你能告诉我程序最终是否能够输出我们需要的结果吗，并且在工作完成之后，程序是就退出，还是会永远运行下去不会停止呢？换句话所就是，对于它会不会停止这个问题， 检查程序和数据，是不是足以能够让你回答是或否呢？<!--more--></p>
+</blockquote>
+
+<p>图灵对于停机问题不可解决的证明是决定性的。没有一个软件仅靠检查另一个软件的源代码，就能够决定它是否会停止运行，还是会永远运行。这是从软件领域对哥德尔证明的重新表述。很多程度上这个证明与哥德尔的是相同的，只是更容易理解，这个证明可以表示成简单的软件代码，而不是令人费解的运行在逻辑语法上的函数。停机问题的证明对开发人员是很容易理解的，但对其它人来讲并没有太大用处，因此，我们这里就不去讲述了。可以自己去读。</p>
+
+<p>不用枯燥的证明，我们用一个实际的例子来展示。比如我向你要一个预言，下面这个程序会不会停止呢？</p>
+
+<blockquote>
+  <p>从$x=4$开始。给我第一个素数$p$，$p$小于$x$。如果$x-p$也是素数，把$x$加2然后继续。如果不是，让$p$作为下一个小的素数然后重新开始。重复以上直到$p=2$。如果$x-p$还不是素数，打印$x$然后退出。</p>
+</blockquote>
+
+<p>问题并不复杂，而且对于任何现代的计算机语言来讲都很简单。假设我们不知道停机问题，那很可能会想这样简单的问题应该是容易预测的。</p>
+
+<p>迷惑之处在于，我没有说是任何程序。上面的语句描述的是著名的哥德巴赫猜想，300年来都是不可证明的。软件仅仅检查这个语句“每个大于2的偶数能够用2个素数之和表示”是否为真，然后移到下一个偶数。对所有前4，000，000，000，000，000，000个数检查下来，我们仍然没有得到一个真正的数学证明。</p>
+
+<p>关键在于，知道这几行代码是否停止_等于_证明哥德巴赫猜想！如果猜想是真则软件不会停止，检查所有直到无穷大的数，都不会发现任何一个破坏这个规则的数。如果猜想为假，那软件就会在找到第一个破坏规则的数之后停止。</p>
+
+<p>有些有趣的东西正在发生。很明显软件只是另一个写逻辑形式系统的方法。我们能用语言或者软件，甚至更低级别的纯粹的哥德尔风格的逻辑算符，如果想的话。然而，基本上，几行语句就能够表示数学上最基础的问题。知道什么时候程序会停止-给出我们想要的结果-和证明难以置信的难题一样困难。我们甚至可以重新用哥德尔的递归函数来写这个软件，然后写这样一个语句“这个函数在某个数之后停止是否为真”。同样是又一次证明这个语句和证明哥德巴赫猜想是一样的。</p>
+
+<p>哥德巴赫猜想目前是数学上一个很大的不可解问题。或者某天有人会真正找到证明；但很可能是某人不用其他公理，证明这个猜想是不可决定的。这样的证明不可思议地难，但类似的问题以前也曾经被证明过。</p>
+
+<p>即使形式系统中最简单的表达式，比如几行软件代码，都能表示非常难的语句，对于我们目前的数学知识，其中一些是不能决定的。软件限制不了其他软件。软件又是如此普遍的存在，以至于行为完全不可预测。另一个软件不能预先告诉你结果会是什么。得到结果的唯一的办法，只有等他运行完毕-可能几小时，或者永远运行下去。</p>
+
+<p>停机问题显示出硬币的另一面。如果一个语句是不可判定的，你不能作弊，只能写一个软件去检查它。软件轻易就可以表示那个语句，但它可能会用无尽的时间去完成它的工作。只要语句的不可判定无法证明，你就证明不了软件是不是会停止。无穷的知识，更多的证明就在那里：然而这些知识却触摸不到，只要我们受限于当前的系统。</p>
+
+<p>既然现在我们开始处理无穷，就是时候了解更多了。大概40年前哥德尔打开大门时，另一个辉煌的思想正在分析关于无穷的问题。</p>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-halting-problem/cantol.jpg" alt="" /></p>
+
+<h2 id="section">初遇无穷</h2>
+
+<p>我们思考无穷的时候，第一个想到的就是无穷大。但比起一行简单递增的数字来讲，无穷变得更加有趣。我们考察自然数和实数。我们知道自然数是$1,2,3$这样的序列，用于计数。我们用实数来衡量真实世界里面的元素，-即，两点间的距离是1.23米之类。无穷的自然数和无穷的实数一样显而易见。</p>
+
+<p>格奥尔格.康托尔证明了一个惊人的结论，称为康托尔对角证明，即就算用无穷的自然数，我们仍然不能对实数进行计数！不知道怎么了，无穷多个自然数其实不够“无穷”！而且有_不同_类型的无穷；由实数组成的无穷，要比自然数组成的无穷更强大。这个证明惊人地简单。</p>
+
+<p>【证明略…对角引理】</p>
+
+<p>很明显连续无穷更强大。那是属于我们周围真实世界的无穷，我们世界里的每个东西都是实数描述的。然而我们永远不知道任意这些实数的准确数字。我们永远局限在我们仪器的误差之中。我们的测量工具在某个地方舍弃了数据，包含无穷的数字的实数被截断。</p>
+
+<p>【…】</p>
+
+<blockquote>
+  <p>这篇文章其实是一篇非常好的引入计算理论和lambda calculus的文章。读者可以知道图灵机实际上是数学问题，而lambda其实是一个逻辑系统。能够在二者之间建立起初步的概念。然后在Reducibility和NP之类的主题，就可以选择角度，互相参照。</p>
+</blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[哥德尔编号]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/25/ge-de-er-bian-hao/"/>
+    <updated>2014-08-25T22:14:37+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/25/ge-de-er-bian-hao</id>
+    <content type="html"><![CDATA[<blockquote>
+  <p>在看计算理论相关的书的时候，偶然看到这个blog，http://skibinsky.com/godel-turing-and-cantor-the-math/，写的很好。我觉得用自动机的方式讲计算理论的话，从DFA，正则，到图灵机，都是很直观而且容易理解的，但是从Halt, Reducibility开始，再用图灵机的语言来描述就是一件可怕而且容易令人迷惑的方式了。这个时候通常不得不退回去，尝试从Lambda Calculus的角度去理解计算理论。不过 Recursion 的符号确实也很讨厌。如果起初就看到这篇文章，我想任何人在理解计算理论的时候都会更容易些吧。不过文章很长，看看我有没有耐心抽空翻译完它吧。<!--more--></p>
+</blockquote>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-ge-de-er-bian-hao/godel.png" alt="" /></p>
+
+<h2 id="section">哥德尔编号</h2>
+
+<p>一个形式系统仅是一系列公理和规则，比如用简单的英文来记录公理，“Number 0 exists”。</p>
+
+<p>但我们能否把自然数关联到公理和规则呢？我们知道，在计算机上一切都是数字。比如，字母 “N” 是78，字母 “u” 是 117，诸如此类。“Number”这个单词对于我们来讲，就像 7811710998101114 对于计算机一样，只是个长长的数字。为什么“N”是78， 不是87或者是8787？没什么特别，只是任意指定的而已，这种指定我们称之为<em>编码规则</em>。如 ASCII这样的具体的标准，规定了，计算机系统如果要兼容ASCII，则必须把“N”指定为78，反之也一样。</p>
+
+<p>这里有意思的地方，即哥德尔证明的关键：在定义数字存在和简单算术的系统中，如果公理“Number 0 exists”，是其中的第一个公理。同时，用ASCII编码“Number 0 exists”，或者其他任何编码，得到关于这个公理的一个数字，表示关于这个关于数字的公理（或规则）。然后我们得到下面这些：</p>
+
+<ul>
+  <li>Number 0 exists $\iff$ 7811710998101114324832101120105115116115</li>
+  <li>Each Number has a successor that is a number $\iff$ 6997991043211011710998101114321049711532973211511 7999910111511511111432116104971163210511532973211 011710998101114</li>
+</ul>
+
+<p>这串数字惊人地长，但终归还是数字。然后，对余下的所有初级公理和规则进行同样的编码，接着我们可以开始对这个形式系统的第一个推论进行编码，再对推论的推论进行编码，等等等等。最后，任何公理或者推论序列都变成一个数字。</p>
+
+<p>有趣的事情开始出现，一方面你定义了一个描述自然数基本属性的形式系统；另一方面，这些公理和推论本身又是用自然数本身定义的！只要需要，我们就可以来回转换。可以把公理当作简单的英文来处理，又可以转换到纯粹的，即使会很长，的数字，把他们当作数字一样处理。系统是<em>自指</em>的：即描述数字的公理和规则同时又是数字自身。</p>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-ge-de-er-bian-hao/recursion.png" alt="" /></p>
+
+<p>现实生活中，用英语来描述形式系统，是非常冗长低效的方式。逻辑学家们发明了很多紧凑语法来描述这一类系统。另外，对于计算机，ASCII编码是不错的，但缺乏某些哥德尔证明所需要的关键属性。于是哥德尔建立了自己的完全唯一的编码，称为<em>哥德尔编码</em>。神奇的是，他是在计算机或者任何ASCII之类的东西出现的几十年前，就提出了这种编码。他的编码用素数进行，要感谢绝对基础的素数因式分解定理，赋予了对于下一步证明极其关键的属性。这类编码保证了，每个唯一的逻辑符号序列-公理，规则，推论等等-都有一个唯一的哥德尔编号。并且我们可以在哥德尔编号和产生哥德尔编号的原本的符号序列之间，来回转换。</p>
+
+<p>现在我们可以用标准的符号逻辑来写逻辑语句，然后将其转换到哥德尔编号。关于自然数的形式系统（或者更复杂的形式系统），其公理和规则，我们都可以写，感谢哥德尔编码的魔法，这些语句同时也就是一些大自然数。从最短的公理到复杂的推论链条，任何事物最后都表现为数字。然后我们可以用一般的数学方法来处理这些数字：证明他们的定理，展示其属性，关系，就像我们在处理其他的数字一样。</p>
+
+<p>以往在给定的逻辑系统里，我们要处理复杂的，证明所涉及到的无穷的可能性，现在，哥德尔宣称：</p>
+
+<blockquote>
+  <p>要知道，我们不一定非得处理这些疯狂的复杂性。我来告诉你一个特别的方法，怎样把任意证明变成一个极大的数字，并且怎样准确地把这些数字转回到原来的证明。只要你有任何证明，10页纸甚至1000页纸长的证明，都仅仅是一个唯一的完全表示你的证明的数字。并且这一点，对于所有可能的证明都成立。从现在开始，我们就只处理和证明关于数字的定理和关于数字的函数。这就简单得多了。</p>
+</blockquote>
+
+<h2 id="section-1">我能证明</h2>
+
+<p>对于现代的软件开发者来讲，哥德尔下面的工作可能是很熟悉的-更别提在这些概念进入技术领域之前，他在几十年前就这么做了。他开始开发自己的函数库，实际上基本是特定领域的语言，用于解决他本来想要解决的问题。而他发明的现代递归概念，仅仅是他工作的副产品。用现代的词汇来讲，他勤奋地证明了他构造的所有函数都是<em>可计算</em>的-即这些函数在有限（即使很大）的离散的步骤之后，都能对某个问题给出相应的具体答案。这也暗示，未来的图灵机，其实已经在他对<em>原始递归</em>的定义中，隐约可见了。</p>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-ge-de-er-bian-hao/turing.jpg" alt="" /></p>
+
+<p>他的第一个函数几乎就是微不足道：他定义了“x可以被y整除”。现代逻辑语言里，可以这样写：</p>
+
+<p>${}$
+$ 1. y | x \iff \exists z \leq x.x=y.z $</p>
+
+<p>通常的语言描述就是，如果存在 z , z小于等于x, 并且 x 等于 z 乘以y, 则x可以被y整除。这就是整除的定义嘛。</p>
+
+<p>之后的定义则开始使用前面定义好的函数，如同现代的软件函数库一样。这使得哥德尔可以飞快地开始建立他的复杂性推论。下一步他定义了什么是素数：</p>
+
+<p>${}$
+$ 2. isPrime(x) \iff \neg (\exists z \leq x.(z \ne 1 \wedge z \ne x \wedge z|x )) \wedge (x &gt; 1) $</p>
+
+<p>可以看出，如果遵循系统的创建更长语句的规则，则可以用逻辑语法来写更复杂的推论。这个语句声明：如果不存在一个数z，z小于x；z不等于1，而且z不等于x并且x能被z整除，则x是一个素数。这只是非常明确的对x只能被1和自身整除的表述。</p>
+
+<p>如此这般，哥德尔继续对他的库建立逻辑上的展开。从皮亚诺公理开始，持续地进行推论，建立越来越多的精巧的函数。建立这样一个库的目的到底是什么呢？哥德尔的天才的目标在于：他就是想描述这样一个函数，能够检测可证明性的函数，即在任意逻辑系统中，什么才是正确的推论。</p>
+
+<p>哥德尔编号能按照逻辑语句的语法进行编码。但是这些编码却不能告诉我们任何关于这些语句的<em>含义</em>。比如，我们可以说，“对于任意x，x+1都等于5”，这明显是错的，但我这样写并没有什么语法错误。我们可以写任何符合逻辑语法的语句，不完全的，无意义的，错的，都可以，如同我们能得到的，可以证明为真的推论语句一样。那么，到底怎样区分无意义的语句，和真正的证明呢？</p>
+
+<p>写下上面那些错误的语句的时候，我们已经打破了一些逻辑系统里的规则。要写真正的证明语句，必须从公理开始，从公理建立下一步的结论，最后，正确地使用所有衍生出来的规则，然后抵达我们想要证明的任何东西。真的证明不能只是一个单独的语句。它总是严格的序列，可以追溯到系统最初的公理。这就揭示出，验证特定的语句是不是真正正确的证明，可以变成纯粹的数学函数的检查和验证！哥德尔用了不超过45个中间结果，得到了函数编号46：$provable(x)$</p>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-ge-de-er-bian-hao/godel_function_lib.png" alt="" />
+<a href="http://www.research.ibm.com/people/h/hirzel/papers/canon00-goedel.pdf#page=8">哥德尔的函数库</a></p>
+
+<p>$provable(x)$ 和英语老师判卷一样。用英语写作的时候（如同用逻辑语法），任何荒唐的文章，包含任何拼写错误以及语法错误，你都可以写，但一个好老师却不会这样。写得好的文章可以得到及格以上的分数，错误的则被拒掉。$provable(x)$做的是一样的事情，只是它基于逻辑语法。如果“x”是正确的逻辑推论序列，遵循了所有的公理和规则，$provable(x)$则判定x是有效证明，否则拒绝x。很明显，$provable(x)$严重依赖哥德尔在第一到第四十五步之间定义的函数。其中包含了大量令人迷惑难解的复杂工作。然而，所有的复杂性都被表示成和编码成纯粹的符号和数学逻辑。</p>
+
+<p>任意逻辑系统中包含的自指的本质，这里再次出现。从纯粹数学的角度，$provable(x)$只是个函数，和别的函数没什么分别。当然它是个非常复杂的函数，但除了要完成很多复杂的步骤以得到结论，对于它所属于的形式系统而言，这里面没有什么是魔术。在他的系统中，这个公式描述什么可以和什么不可以被证明。这个函数为系统赋予了声音，系统开始向我们表达他自己，即在它内部，什么是可能的。从这里开始，事物变得越来越令人好奇。</p>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-ge-de-er-bian-hao/eienstein.png" alt="" /></p>
+
+<blockquote>
+  <p><strong>爱因斯坦，哥德尔和美国宪法</strong>
+如同来到硅谷的大多数人，哥德尔也是移民，也要面对公民权考试。当然，这个逻辑大师就开始学习美国宪法，当然，他很快就发现了其中的问题。按照哥德尔的说法，他发现了宪法中某个不一致的地方，以至于民主会恶化成为专制。哥德尔的朋友，知道没有什么社交惯例会阻止哥德尔批评他所发现的逻辑错误，于是决定找办法保证哥德尔通过公民权考试。其中一个办法则是阿尔伯特.爱因斯坦。尽管这些办法起到了好效果，分散了哥德尔的注意力，但最后哥德尔还是设法把他的发现传达给了主持仪式的法官。庆幸的是，这个法官也是几年前主持爱因斯坦宣誓的那个，哥德尔无惊无险通过了考试。如果决定告诉法官，你发现了美国最高法律文件的逻辑错误，有爱因斯坦做队友，还是不错的。</p>
+</blockquote>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-ge-de-er-bian-hao/triangle.png" alt="" /></p>
+
+<h2 id="section-2">对角引理</h2>
+
+<p>有个无法回避但相当简单的数学问题。起初，证明并不包括对角引理；哥德尔用他纯粹的脑力在全部证明中隐含地推导了它。引理表述的是，给定的哥德尔编号的系统，总是至少有一个数字$f$，对于任意逻辑公式$F$，$f=GodelNumber(F(f))$。</p>
+
+<p>直觉上，证明可以如此理解，如果我们在纸上画函数，比如$y=GodelNumber(F(x))$,我们从$x=0,x=1,x=2$，开始，在得到相应的G-number的地方画点。一直增大$x$，并一直在坐标轴上向右移。引理证明，迟早这个图形会相交到一点，$y=x$。因此，我们至少有一个数字，传递给函数F之后，其自身也是最后的G-number。</p>
+
+<h2 id="section-3">证明</h2>
+
+<p>现在，哥德尔得到了拼图的所有部分，并将带来数学史上最大的惊喜。在哥德尔的论文中，“定理VI” 非常复杂。这里是证明的思路，传统上一直用来描述其关键的发现。</p>
+
+<p>如前面讲的，$provable(x)$设计成很多复杂的步骤，作为检查$x$是否是可证明的语句的函数。我们可以定义另一个函数，$NP(x)=$<em>NOT</em>$provable(x)$。“NOT”是逻辑上很简单的操作，变换其输入。$provable(x)$只能是真或者假，$x$要么是可证明的要么不是。“NOT”用来转换其结果。因为，$NP(x)$也是一元函数，我们可以对它使用对角引理。然后一定存在一个$g$，而$g=GodelNumber(NP(g))$。目前为止，还是容易理解的。然后我们对$NP(x)$做函数图，找到它与对角线相交的点，标记这个点为$g$。</p>
+
+<p>构造另一个逻辑语句$G=$NOT $provable(g)$-现在$G$不再是一个函数，因为我们放的是指定的数字$g$，现在它只是个很长的逻辑表达式，按照$provable(x)$的复杂的逻辑语法扩展开得到的，-这里我们的指定的数字$g$代替自由变量$x$。这个特定的逻辑语句是真吗？可以证明吗？</p>
+
+<p>思考一下。$provable(x)$对于任意$x$，它都可以告诉我们“真”或“假”。那么$NOT$  $provable(x)$也只能是“真”或“假”。现在我们用特别的数字$g$，并且要找到$G=NOT$ $provable(g)$的值。只有两个答案，真或假，那么是哪个呢？</p>
+
+<p><img src="https://github.com/macezx/godel/images/2014-08-25-ge-de-er-bian-hao/provable.png" alt="" /></p>
+
+<h3 id="g">当$G$为假</h3>
+
+<p>考虑如果$G$为假会发生什么。好吧，我们定义$G$为“$NOT provable(g)$”。如果$G$为假，那么$provable(g)$就是真。因为我们可以用对角引理来找到数字$g$的编号，我们得到，$g=GodelNumber(NP(g))=GodelNumber(g)$。这意味着$provable(g)=true$把编码成哥德尔编码的$g$当作正确的证明!从一个假的证明，我们却得到了真的结论。Ka-boom!整个系统的一致性在一个大核爆炸中化为乌有：我们得到关于$G$的证明事实上是个假的语句！系统不一致了，能够证明一个假的语句为真，那就意味你能证明任何东西和每样东西。太糟糕了。</p>
+
+<h3 id="g-1">当$G$为真</h3>
+
+<p>好吧，让$G$为假不是个好事，它立刻导致系统不一致。然后考虑如果$G$为真。我们显然更喜欢让系统维持一致-否则他就毫无用处了-唯一的选择就是假定$G$为真。回到定义，$G=$<em>NOT</em> $provable(g)$。如果 $G$为真，那么$provable(x)$一定为假。我们严格的，存在于$provable(x)$内部的逻辑历史告诉我们，“$g$并不包含我愿意作为有效证明接受的逻辑序列。在所有可能的能够编码到你系统中的，$g$恰好不在其中”。于是，没有这样一个逻辑推论的序列；没有可以用来证明$G$的东西。</p>
+
+<p>如果$G$为_真_。同时又没有关于$G$的证明。G对于我们的逻辑系统是不可证的。如果证明是一些以路为网络联起来的村庄,那么所有的指向我们最初的公理的道路都不会到达$G$。但是$G$存在而且又为真-然而地图上却没有一条逻辑上的路径从公理出发到达$G$。从系统得到所有的推论都不会包含$G$，因此，系统是_不完备_的。</p>
+
+<p>这正是哥德尔要说的，“任何…能够表达基本数学的形式系统不可能是既一致又完备的”。</p>
+
+<p>如果要保持一致性，则不得不接受存在这样的$G$语句，为真，但是又不可证明，系统永远是不完备的。或者你能够坚持让他们变得可证明，但那又立即使得系统不一致。对于任何能够表达最基本的算术公理的系统，都只能选择一样，不能同时拥有。</p>
+
+<p>关于哥德尔证明，有些东西是很令人惊叹的。我们通常认为逻辑系统是纸上枯燥而无聊的，古怪的符号序列。然而突然间，符号们好像活了过来。好像系统自己有了智慧并且开始对我们讲他自己的公理，什么是一个定理的正确推导，什么是可证明的语句。最终，这令人费解$G$语句构造出来，显示有些真的语句是写不出来的…，然而又永远不可能证明他们存在于系统之中。真相就在那里，…，却完全触摸不到！</p>
+
+<p>到底有多少这种隐藏的知识呢？很明显是无穷的。这里则是原因。哥德尔之后更加努力地去证明，因为他想展示一个有趣的结论。假如我们把G作为一个公理加入到系统中呢？毕竟我们知道它是真的，因为不这样，系统就不一致。这样会不会让我们的系统变得完备呢？结果是，如果添加新的公理到系统，系统就变了！记得所有定义$provable(x)$的步骤吗？既然现在我们加入了新的公理到原本的公理列表之中，我们就必须退回我们之前用于定义$provable(x)$的每一步，因为我们增加了新的公理。那么现在，我们面对一个新系统，这个系统有一个新的$provable\prime(x)$函数，继而又会有新的$G\prime$语句。并且$G\prime$与第一个我们添加到公理中的$G$语句不一样。那么，我们新扩展了的系统，出现了_第二个_不可证的语句。重复同样的过程，我们得到$G\prime\prime$，$G\prime\prime\prime$，以至对于这个一直在扩展的形式系统，我们得到无穷多个真却不可证的语句。</p>
+
+<p>如果有人现在完全迷惑了，这并不奇怪。$G$语句是非常抽象的构造。那么所有的形式系统是不完备的，我们怎么能够实际上用到这个事实呢？对于所有这些数学上无以匹敌的辉煌的哥德尔的证明，给予我们很多开始时候并不具备的东西。</p>
+
+<p>在得到我们自己的，关于真实世界中的应用的推论前，让我们真正建造更多的关于形式系统这个陌生世界的领悟。如同台球互相以某个角度碰撞，然后走向不同的方向，要理解哥德尔的结论之中完整蕴含的内容，我们复习一些与之密切相关的，其他的重要数学成果。第一个，是图灵的停机问题。</p>
+
+<p>【待续】</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Test]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/25/test/"/>
+    <updated>2014-08-25T22:07:12+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/25/test</id>
+    <content type="html"><![CDATA[<p>$\frac{\partial x}{\partial}=\Sigma_{i=0}^{n}{x \times y ^{e^x}}$</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Prolog]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/24/prolog/"/>
+    <updated>2014-08-24T22:46:13+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/24/prolog</id>
+    <content type="html"><![CDATA[<h2 id="section">1.</h2>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class="prolog"><span class="line"><span class="cm">/*</span>
+</span><span class="line"><span class="cm">	[] does not match [H|T]</span>
+</span><span class="line"><span class="cm">	[a] matchs [a|[]]</span>
+</span><span class="line"><span class="cm">*/</span>
+</span><span class="line"><span class="nf">foo</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">]):-</span>
+</span><span class="line">	<span class="nf">write</span><span class="p">(</span><span class="nv">H</span><span class="p">),</span><span class="nf">write</span><span class="p">(</span><span class="s-Atom">&#39; &#39;</span><span class="p">),</span><span class="nf">write</span><span class="p">(</span><span class="nv">T</span><span class="p">),</span><span class="s-Atom">nl</span><span class="p">.</span>
+</span><span class="line">
+</span><span class="line"><span class="s-Atom">?-</span> <span class="nf">foo</span><span class="p">([]).</span>
+</span><span class="line"><span class="s-Atom">false</span><span class="p">.</span>
+</span><span class="line">
+</span><span class="line"><span class="s-Atom">?-</span> <span class="nf">foo</span><span class="p">([</span><span class="mi">1</span><span class="p">]).</span>
+</span><span class="line"><span class="mi">1</span> <span class="p">[]</span>
+</span><span class="line"><span class="s-Atom">true</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="section-1">2.</h2>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="prolog"><span class="line"><span class="nf">split2</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],[</span><span class="nv">H</span><span class="p">],</span><span class="nv">L2</span><span class="p">):-</span>
+</span><span class="line">	<span class="nf">split3</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],[],</span><span class="k">_</span><span class="p">),</span>
+</span><span class="line">	<span class="nf">write</span><span class="p">(</span><span class="s-Atom">&#39;match2&#39;</span><span class="p">),</span><span class="s-Atom">nl</span><span class="p">.</span>
+</span><span class="line"><span class="nf">split3</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],[],</span><span class="k">_</span><span class="p">).</span><span class="s-Atom">▫</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>If we run <code>split2([1,2],X,Y)</code> to copy 1, to X, actually we are asking if <code>split2([1,2],X,Y)</code> is True. It works as following:</p>
+
+<ul>
+  <li>check if line 2 is true</li>
+  <li>check if line 4 is true</li>
+  <li>line 4 is true, line 2 is true, then, line 1 is true</li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+</pre></td><td class="code"><pre><code class="prolog"><span class="line"><span class="p">[</span><span class="s-Atom">trace</span><span class="p">]</span>  <span class="s-Atom">?-</span> <span class="nf">split2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="nv">X</span><span class="p">,</span><span class="nv">Y</span><span class="p">).</span>
+</span><span class="line">   <span class="nv">Call</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="nf">split2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="k">_</span><span class="nv">G1720</span><span class="p">,</span> <span class="k">_</span><span class="nv">G1721</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class="line">   <span class="nv">Call</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="nf">split3</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[],</span> <span class="k">_</span><span class="nv">G1823</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class="line">   <span class="nv">Exit</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="nf">split3</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[],</span> <span class="k">_</span><span class="nv">G1823</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class="line">   <span class="nv">Call</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="nf">write</span><span class="p">(</span><span class="s-Atom">match2</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class="line"><span class="s-Atom">match2</span>
+</span><span class="line">   <span class="nv">Exit</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="nf">write</span><span class="p">(</span><span class="s-Atom">match2</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class="line">   <span class="nv">Call</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="s-Atom">nl</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class="line">
+</span><span class="line">   <span class="nv">Exit</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="s-Atom">nl</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class="line">   <span class="nv">Exit</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="nf">split2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="k">_</span><span class="nv">G1721</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class="line"><span class="nv">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">].</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+]]></content>
+  </entry>
+  
+</feed>

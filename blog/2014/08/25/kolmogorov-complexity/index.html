@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Kolmogorov复杂性 - Godel</title>
+  <meta name="author" content="alex">
+
+  
+  <meta name="description" content="原文-wiki 看Kolmogorov复杂性看到云里雾里，于是干脆把wiki上的翻译了一下。 [toc] Chaitin complexity, algorithmic entropy, program-size complexity 定义
+Kolmogorov 复杂性可被定义到任意数学对象， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://github.com/macezx/godel/blog/2014/08/25/kolmogorov-complexity">
+  <link href="/godel/favicon.png" rel="icon">
+  <link href="/godel/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/godel/atom.xml" rel="alternate" title="Godel" type="application/atom+xml">
+  <script src="/godel/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/godel/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/godel/">Godel</a></h1>
+  
+    <h2>Something to remember.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/godel/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:github.com/macezx/godel" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/godel/">Blog</a></li>
+  <li><a href="/godel/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Kolmogorov复杂性</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-08-25T22:38:55+12:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:38 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>原文-<a href="http://en.wikipedia.org/wiki/Kolmogorov_complexity">wiki</a></p>
+
+<p>看Kolmogorov复杂性看到云里雾里，于是干脆把wiki上的翻译了一下。<!--more--></p>
+
+<p>[toc]</p>
+
+<p>Chaitin complexity, algorithmic entropy, program-size complexity</p>
+
+<hr />
+
+<h1 id="section">定义</h1>
+<p>Kolmogorov 复杂性可被定义到任意数学对象，为简化本文的范围，限制到字符串。必须首先为字符串指定一个描述语言。这种描述语言可以基于任意计算机编程语言。如果$P$是一个程序，输出字符串$x$，则$P$是$x$的一个 <strong>描述</strong> 。描述的长度只是$P$作为字母串的长度，再乘与每个字母的bit数。</p>
+
+<p>另外，我们可以选择一个图灵机编码，这里 <strong>编码</strong> 指一个把每个图灵机$M$关联到一个bit串$&lt;M&gt;$的函数。假如$M$是一个图灵机，对于输入$w$，输出字符串$x$，则字符串的联合$&lt;M&gt;w$则为$x$的一个 <strong>描述</strong> 。为了进行理论上的分析，这个方法更适合于构造详细的正式证明，且通常被研究性文本所采用。本文中，我们讨论一种非正式的方法。</p>
+
+<p>任意串$s$至少有一个 <strong>描述</strong> ，即程序:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="groovy"><span class="line"><span class="n">function</span> <span class="nf">GenerateFixedString</span><span class="o">()</span>
+</span><span class="line">    <span class="k">return</span> <span class="n">s</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>如果$s$的描述，$d(s)$，长度最小，即使用最少的bit数,即称 $d(s)$ 为 $s$ 的 <strong>最小描述</strong> 。因此，$d(s)$ 的长度(即，描述中的bit数)即为 $s$ 的 <strong>Kolmogorov</strong> 复杂性，记为 $K(s)$ 。用符号表示，</p>
+
+<p>$
+K(s)=|d(s)|
+$</p>
+
+<p>最小描述的长度取决于所选择的描述语言；但是改变描述语言的效果是有范围的(一个结果称之为 <em>invariance</em> 定理)。</p>
+
+<hr />
+
+<h1 id="invariance-">Invariance 定理</h1>
+
+<h2 id="section-1">非正式方法</h2>
+
+<p>从下面这些方面讲，存在一些描述语言是最优的：用某个描述语言得到的对某个对象的描述，可以将其连同一个固定的头信息放到最优描述语言中。头信息只取决于所用的语言，不受对象的描述影响，或者对象本身。
+下面是最优描述语言的例子。一个描述由两个部分组成：</p>
+
+<ul>
+  <li>描述另一个描述语言的部分</li>
+  <li>用这种语言描述的对象部分</li>
+</ul>
+
+<p>更技术性的术语中，第一个部分是一个计算机程序，第二个部分是能让程序输出此对象的输入。
+Invariance定理如下：任意描述语言$L$,连同头信息，最优描述语言至少等于$L$的效率。</p>
+
+<p><strong>证明：</strong> </p>
+
+<p>通过先把 $L$ 表述成一个计算机程序 $P$ (第一个部分)，然后用原描述D作为程序的输入(第二个部分)，可以把$L$中的任意一个描述$D$转换到最优语言。新的描述$D\prime$的长度为(近似地)：</p>
+
+<p>$|D\prime|=|P| + |D|$</p>
+
+<p>$P$的长度固定且不取决于$D$。因此，最多有一个固定的开销，且与被描述的对象无关。因此，最优语言一般最多是附加的固定开销。</p>
+
+<h2 id="section-2">更正式些的方法</h2>
+
+<p><strong>定理</strong>： </p>
+
+<p>如果 $K1$ 和 $K2$ 是对于图灵完备的描述语言 $L1$ 和 $L2$ 的复杂性函数,那么有一个常量 $c$ – $c$ 只取决于选择 $L1$ 还是 $L2$ – 使得</p>
+
+<p>$ \forall s. - c \leq K1(s) - K2(s) \leq c. $</p>
+
+<p><strong>证明：</strong></p>
+
+<p>根据对称性，有某个常量$c$使得对于所有串$s$</p>
+
+<p>$K1(s) \leq K2(s) + c$</p>
+
+<p>假设有$L1$语言的程序作为$L2$的解释器：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">function</span> <span class="nf">InterpretLanguage</span><span class="o">(</span><span class="n">string</span> <span class="n">p</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>$p$ 为 $L2$ 语言的程序。解释器的特征由以下属性决定:</p>
+
+<ul>
+  <li>对输入 $p$ 运行 InterpreLanguage 返回 $p$ 的执行结果</li>
+</ul>
+
+<p>因此，如果 $P$ 是一个 $L2$ 程序，是 $s$ 的最小描述，那么 $InterpreteLanguage(P)$ 返回串 $s$ 。$s$ 的描述的长度是：</p>
+
+<ol>
+  <li>
+    <p>InterpreLanguage程序的长度，即常量 $c$；</p>
+  </li>
+  <li>
+    <p>$P$ 的长度，即 $K2(s) $</p>
+  </li>
+</ol>
+
+<p>以上二者之和。复杂性的上限得到证明。</p>
+
+<hr />
+
+<h1 id="section-3">历史与环境</h1>
+
+<p>算法信息理论是计算机科学的一个领域，研究对于字符串（或其他数据结构)的Kolmogorov复杂性和其他复杂性度量。</p>
+
+<p>Kolmogorov复杂性的概念和理论基于一个关键的定理，此定理首先被Ray Solomonoff发现，于1960年发表，在<em>“A Preliminary Report on a General Theory of Inductive Inference”</em> 中，作为他发明的 <em>算法概率</em> 的一部分得到描述。在1964年出版的 <em>“A Formal Theory of Inductive Inference”</em> 中，他给出了一个更完整的描述，在 <em>Information And Control</em> 的第一部分和第二部分。</p>
+
+<p>Andery Kolmogorov后来在1965，<em>Proglems Inform. Transmission</em> 上独立发表了这个定理。Gregory Chaitin也在 <em>J.ACM</em> 上提出了他的定理 - Chaitin的论文于1966年10月提交并修改于1968年12月，引用了Solomonoff和Kolmogorov的论文。</p>
+
+<p>定理表述，把字符串从其描述(编码)解码的算法当中，存在一个最优的算法。此算法，对于所有字符串，它可以使得编码可以与其他算法允许的编码一样短，到一个附加的取决于算法但并不取决于字符串自身的常量。Solomonoff用这个算法和其允许的编码长度，定义了一个字符串的<em>“普遍概率”</em>，字符串的后续数字的归纳推理可以基于此概率。Kolmogorov使用这个定理定义了几个字符串函数，包括，复杂性，随机性和信息。</p>
+
+<p>Kolmogorov知道Solomonoff的工作时，他知道了Solomonoff 优先。几年来，比起在西方世界，Solomonoff的工作在苏联更多人知道。然而，科学界的一般共识是把这类复杂性归功于Kolmogorov，他关注序列的随机性，而算法概率归功于Solomonoff，Solomonoff 专注于用他发明的普遍优先概率分布去做预测。在更广泛的包含描述复杂性和概率的领域中，这个领域则通常称为Kolmogorov复杂性。</p>
+
+<p>还有几个其他Kolmogorov复杂性或者算法信息的变体。应用最广泛的一个基于self-delimiting program，主要归功于 Leonid Levin。</p>
+
+<p>对Kolmogorov复杂性的一个不证自明的方法基于 Blum 公理，由Mark Burgin在Andrey Kolmogorov发表的论文中引入。（TODO:??)</p>
+
+<hr />
+
+<h1 id="section-4">基本结论</h1>
+
+<p>下面的讨论中，$K(s)$是字符串$s$的复杂性。</p>
+
+<p>不难看出，字符串的最小描述不能比它自身更长 – 输出s的程序GenerateFixedString是一个固定的大于s的数量。</p>
+
+<p><strong>定理：</strong></p>
+
+<p>存在一个常量$c$，使得</p>
+
+<p>$\forall s. K(s) \leq |s| + c$</p>
+
+<h2 id="kolmogorov">Kolmogorov复杂性的不可计算</h2>
+
+<p><strong>定理：</strong></p>
+
+<p>存在有任意大Kolmogorov复杂性的字符串。形式化表述：对于每个属于自然数的数$n$, 有一个字符串 $s$，$K(s) \geq n$。</p>
+
+<p><strong>证明：</strong> </p>
+
+<p>否则所有无限多的可能的字符串可以由有限多的复杂性低于$n$ bit的程序产生。</p>
+
+<p><strong>定理：</strong> </p>
+
+<p>K不是一个可计算函数。换句话说，没有程序可以接受字符串$s$作为输入，产生一个整数$K(s)$作为输出。</p>
+
+<p>下面的非直接的证明使用了类似 <em>Pascal</em> 的语言表示程序；为简化证明，假设其描述(即解释器)长度为1,400,000bit。为得到矛盾，假设有这样一个程序，</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">function</span> <span class="nf">KolmogorovComplexity</span><span class="o">(</span><span class="n">string</span> <span class="n">s</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>接受$s$作为输入，返回$K(s)$；为简化证明，假设长度为7,000,000,000bit。思考长度为1,288bit的程序：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">function</span> <span class="nf">GenerateComplexString</span><span class="o">()</span>
+</span><span class="line">    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="nl">infinity:</span>
+</span><span class="line">        <span class="k">for</span> <span class="n">each</span> <span class="n">string</span> <span class="n">s</span> <span class="n">of</span> <span class="n">length</span> <span class="n">exactly</span> <span class="n">i</span>
+</span><span class="line">            <span class="k">if</span> <span class="nf">KolmogorovComplexity</span><span class="o">(</span><span class="n">s</span><span class="o">)</span> <span class="o">&gt;=</span> <span class="mi">8000000000</span>
+</span><span class="line">                <span class="k">return</span> <span class="n">s</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>使用KolmogorovComplexity作为子程序，尝试每个字符串，由最短的开始，直到返回一个字符串，其Kolmogorov复杂性至少是8,000,000,000bit，即，字符串不能由任意短于8,000,000,000bit的程序产生。但是，上面产生$s$的程序长度仅仅是7,001,401,288 bit，得到矛盾。(如果KolmogorovComplexity的代码更短一些，矛盾仍然存在。更长一些的话，则GenerateComplexString的常量可以任意改变。)</p>
+
+<p>上面的证明用了和Berry悖论一样的矛盾：”The smallest positive integer that can not be defined in fewer than twenty English words”。通过从停机问题 $H$归约，同样可以用来显示$K$的不可计算性，因为$K$和$H$是图灵等价的。</p>
+
+<p>有一个引理，在编程语言社区叫做”全雇佣定理”，说的是没有完美的对长度进行优化的编译器。</p>
+
+<h2 id="kolmogorov-1">Kolmogorov复杂性的链式法则</h2>
+
+<p>Klmogorov复杂性的链式法则：</p>
+
+<p>$
+K(X,Y) = K(X)+K(Y|X) + O(log(K(X,Y)))
+$</p>
+
+<p>表述产生$X$和$Y$的最短程序，比产生$X$的程序加上对给定的$X$产生$Y$的程序，不会多于对它所取的对数。</p>
+
+<hr />
+
+<h1 id="section-5">压缩</h1>
+
+<p>计算K(s)的上限是很直接的 - 只要用某个方法压缩字符串$s$,用特定语言实现相应的解压缩程序，然后把解压缩程序与压缩后的字符串连接起来，再测量其长度即可。</p>
+
+<p>$c$ 是一个整数，如果对字符串 $s$，存在一个描述，其长度不超过  $ |s|-c $ bit，则 $s$ 对于 $c$ 是 <strong>可压缩</strong> 的。否则，$s$ 对于 $c$ 是不可压缩的。不能被1压缩的字符串简单地称为不可压缩 - 根据鸽巢原理，鸽巢原理所以适用是因为每个被压缩串只映射到一个未压缩串，不可压缩串一定存在，因为长度为$n$的，$2^n$bit的串只有$2^n-1$个更短的串存在，即，长度（0,1,…,n-1)小于$n$的串。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>同样原因，从不能对他们高度压缩这个方面看来，很多串是复杂的 – 比起</td>
+      <td>s</td>
+      <td>，他们的$K(s)$不是很小。要更精确的的话，则固定一个n的值。有长度为$n$的$2^n$个bit串。此空间上的bit串的一致概率分布准确地分派相等的权重$2^{-n}$到每个长度为$n$的字符串。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>定理:</strong></p>
+
+<p>长度为n的bit串的空间上的一致概率分布，使得字符串对于$c$不可压缩的概率至少是$1-2^{-c+1}+2^{-m}$。</p>
+
+<p>要证明这个定理，注意长度不超过$n-c$的描述的数量由以下几何级数指定：</p>
+
+<p>$
+1+2+2^n+ … +2^{n-c}=2^{n-c+1}-1
+$</p>
+
+<p>有至少$2^n-2^{n-c+1}+1$个长度为n的bit串对于$c$是不可压缩的。要得到此概率，则用它除与$2^n$.</p>
+
+<hr />
+
+<h1 id="chaitin">Chaitin的不完备定理</h1>
+<p>【略】</p>
+
+<hr />
+
+<h1 id="section-6">最小消息长度</h1>
+<p>【略】</p>
+
+<hr />
+
+<h1 id="kolmogorov-2">Kolmogorov随机性</h1>
+<p>【略】</p>
+
+<hr />
+
+<h1 id="section-7">与熵的关系</h1>
+<p>【略】</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">alex</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-08-25T22:38:55+12:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:38 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/godel/blog/categories/computation-theory/'>computation theory</a>, <a class='category' href='/godel/blog/categories/godel/'>godel</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://github.com/macezx/godel/blog/2014/08/25/kolmogorov-complexity/" data-via="" data-counturl="https://github.com/macezx/godel/blog/2014/08/25/kolmogorov-complexity/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/godel/blog/2014/08/25/halting-problem/" title="Previous Post: halting problem">&laquo; halting problem</a>
+      
+      
+        <a class="basic-alignment right" href="/godel/blog/2014/08/25/lsi/" title="Next Post: LSI">LSI &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/matrix/">Matrix</a>
+      </li>
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/lsi/">LSI</a>
+      </li>
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/kolmogorov-complexity/">Kolmogorov复杂性</a>
+      </li>
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/halting-problem/">Halting Problem</a>
+      </li>
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/ge-de-er-bian-hao/">哥德尔编号</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - alex -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

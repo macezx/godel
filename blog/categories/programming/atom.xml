@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Programming | Godel]]></title>
+  <link href="https://github.com/macezx/godel/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="https://github.com/macezx/godel/"/>
+  <updated>2014-08-25T23:40:21+12:00</updated>
+  <id>https://github.com/macezx/godel/</id>
+  <author>
+    <name><![CDATA[alex]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Prolog]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/24/prolog/"/>
+    <updated>2014-08-24T22:46:13+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/24/prolog</id>
+    <content type="html"><![CDATA[<h2 id="section">1.</h2>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='prolog'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">	[] does not match [H|T]</span>
+</span><span class='line'><span class="cm">	[a] matchs [a|[]]</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="nf">foo</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">]):-</span>
+</span><span class='line'>	<span class="nf">write</span><span class="p">(</span><span class="nv">H</span><span class="p">),</span><span class="nf">write</span><span class="p">(</span><span class="s-Atom">‘</span> <span class="s-Atom">‘</span><span class="p">),</span><span class="nf">write</span><span class="p">(</span><span class="nv">T</span><span class="p">),</span><span class="s-Atom">nl</span><span class="p">.</span><span class="s-Atom">&lt;/p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="s-Atom">p&gt;?-</span> <span class="nf">foo</span><span class="p">([]).</span>
+</span><span class='line'><span class="s-Atom">false</span><span class="p">.</span><span class="s-Atom">&lt;/p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="s-Atom">p&gt;?-</span> <span class="nf">foo</span><span class="p">([</span><span class="mi">1</span><span class="p">]).</span>
+</span><span class='line'><span class="mi">1</span> <span class="p">[]</span>
+</span><span class='line'><span class="s-Atom">true</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2 id="section-1">2.</h2>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='prolog'><span class='line'><span class="nf">split2</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],[</span><span class="nv">H</span><span class="p">],</span><span class="nv">L2</span><span class="p">):-</span>
+</span><span class='line'>	<span class="nf">split3</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],[],</span><span class="o">&lt;</span><span class="s-Atom">em&gt;</span><span class="p">),</span>
+</span><span class='line'>	<span class="nf">write</span><span class="p">(</span><span class="s-Atom">‘match2’</span><span class="p">),</span><span class="s-Atom">nl</span><span class="p">.</span>
+</span><span class='line'><span class="nf">split3</span><span class="p">([</span><span class="nv">H</span><span class="p">|</span><span class="nv">T</span><span class="p">],[],</span><span class="s-Atom">&lt;/em&gt;</span><span class="p">).</span><span class="s-Atom">▫</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>If we run <code>split2([1,2],X,Y)</code> to copy 1, to X, actually we are asking if <code>split2([1,2],X,Y)</code> is True. It works as following:</p>
+
+<ul>
+  <li>check if line 2 is true</li>
+  <li>check if line 4 is true</li>
+  <li>line 4 is true, line 2 is true, then, line 1 is true</li>
+</ul>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='prolog'><span class='line'><span class="p">[</span><span class="s-Atom">trace</span><span class="p">]</span>  <span class="s-Atom">?-</span> <span class="nf">split2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="nv">X</span><span class="p">,</span><span class="nv">Y</span><span class="p">).</span>
+</span><span class='line'>   <span class="nv">Call</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="nf">split2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="k">_</span><span class="nv">G1720</span><span class="p">,</span> <span class="k">_</span><span class="nv">G1721</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class='line'>   <span class="nv">Call</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="nf">split3</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[],</span> <span class="k">_</span><span class="nv">G1823</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class='line'>   <span class="nv">Exit</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="nf">split3</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[],</span> <span class="k">_</span><span class="nv">G1823</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class='line'>   <span class="nv">Call</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="nf">write</span><span class="p">(</span><span class="s-Atom">match2</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class='line'><span class="s-Atom">match2</span>
+</span><span class='line'>   <span class="nv">Exit</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="nf">write</span><span class="p">(</span><span class="s-Atom">match2</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class='line'>   <span class="nv">Call</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="s-Atom">nl</span> <span class="s-Atom">?</span> <span class="s-Atom">creep&lt;/p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="s-Atom">p</span><span class="o">&gt;</span><span class="nv">Exit</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="s-Atom">nl</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class='line'>   <span class="nv">Exit</span><span class="s-Atom">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="nf">split2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="k">_</span><span class="nv">G1721</span><span class="p">)</span> <span class="s-Atom">?</span> <span class="s-Atom">creep</span>
+</span><span class='line'><span class="nv">X</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">].</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+]]></content>
+  </entry>
+  
+</feed>

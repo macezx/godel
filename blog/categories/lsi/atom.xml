@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Lsi | Godel]]></title>
+  <link href="https://github.com/macezx/godel/blog/categories/lsi/atom.xml" rel="self"/>
+  <link href="https://github.com/macezx/godel/"/>
+  <updated>2014-08-25T23:40:21+12:00</updated>
+  <id>https://github.com/macezx/godel/</id>
+  <author>
+    <name><![CDATA[alex]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[LSI]]></title>
+    <link href="https://github.com/macezx/godel/blog/2014/08/25/lsi/"/>
+    <updated>2014-08-25T22:54:41+12:00</updated>
+    <id>https://github.com/macezx/godel/blog/2014/08/25/lsi</id>
+    <content type="html"><![CDATA[<p>Last week I was here <a href="http://www.meetup.com/Natural-Language-Processing-in-NZ/events/195174732/">Natural Language Processing in NZ</a>.</p>
+
+<p>Someone asked a question, is there any existed library or solution which can extract certain information out of a natural language dataset of a specific topic, for example, to find objective facts and subjective sentimental information  out of a bunch of customer complaints.<!--more--></p>
+
+<p>I was doing something similar in this realm, and I think <a href="http://en.wikipedia.org/wiki/Latent_semantic_indexing">LSI</a> or <a href="https://code.google.com/p/word2vec/">Word2Vec</a> is the best solution of this problem now. But my poor english speaking could not match either my confidence or LSI’s power, my explanation of LSI was so terrible that someone gave me a few hints very politely and cryptically. </p>
+
+<p>I felt sorry for LSI, it was not its fault that I didn’t present it in a proper way. Thanks to <a href="http://www.meetup.com/Natural-Language-Processing-in-NZ/members/11036321/">Alyona</a> and everyone in the meetup, I appreciate the opportunity to meet nice people and interesting ideas there. So, I’d like to explain myself again.</p>
+
+<p>We have been trying to build different models of natural language. The problem of querying natural language dataset is the problem of how to build a model which could interpret a query into results. The question raised at last meetup was how to build such a model which can extract information from natural language dataset based on specific syntactic structure and some specific semantics.</p>
+
+<p>We have plenty natural language parsers now, so I guess syntactic structure is not the problem here.</p>
+
+<p>As for semantics, there are some rule-based approach, such as, <a href="http://en.wikipedia.org/wiki/WordNet">WordNet</a> , <a href="http://en.wikipedia.org/wiki/FrameNet">FrameNet</a>,  however, I found it was difficult to map a word to similar words in semantics because a word usaually has multiple meanings, and there is no way to find the right semantics of a word in a specific context with these approach. And you could end up with different results with different meaning of a word. Furthermore, there is not any threshold which can determine how far you can go in a WordNet graph, at least not in a mathematically decidable way.</p>
+
+<p>LSI is a tool of finding similarity among documents, it stems from <a href="http://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a>. After mapping all documents into a space,  we could find similarities between documents in different dimension.  And of course we can get a distance between any two words in a specific dimension.</p>
+
+<p><a href="https://code.google.com/p/word2vec/">Word2Vec</a>  is based on the same idea but the algorithm is different.</p>
+
+<p>With these tools, by training a model with a dataset of some topics, we can determine the distance of any two words in a specific dataset(or topic) with this model. Then we can map a query into a set of sentences with this similarity or distance in respect to the specific topic.</p>
+
+<p>LSI or similar algorithm is actually another piece of the puzzle.</p>
+
+<p>’&#8217;’Note’’’
+We still have to deal with the problem of how to model multi meanings of a word</p>
+]]></content>
+  </entry>
+  
+</feed>

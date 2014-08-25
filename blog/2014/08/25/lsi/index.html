@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>LSI - Godel</title>
+  <meta name="author" content="alex">
+
+  
+  <meta name="description" content="Last week I was here Natural Language Processing in NZ. Someone asked a question, is there any existed library or solution which can extract certain &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://github.com/macezx/godel/blog/2014/08/25/lsi">
+  <link href="/godel/favicon.png" rel="icon">
+  <link href="/godel/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/godel/atom.xml" rel="alternate" title="Godel" type="application/atom+xml">
+  <script src="/godel/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/godel/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/godel/">Godel</a></h1>
+  
+    <h2>Something to remember.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/godel/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:github.com/macezx/godel" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/godel/">Blog</a></li>
+  <li><a href="/godel/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">LSI</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-08-25T22:54:41+12:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:54 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Last week I was here <a href="http://www.meetup.com/Natural-Language-Processing-in-NZ/events/195174732/">Natural Language Processing in NZ</a>.</p>
+
+<p>Someone asked a question, is there any existed library or solution which can extract certain information out of a natural language dataset of a specific topic, for example, to find objective facts and subjective sentimental information  out of a bunch of customer complaints.<!--more--></p>
+
+<p>I was doing something similar in this realm, and I think <a href="http://en.wikipedia.org/wiki/Latent_semantic_indexing">LSI</a> or <a href="https://code.google.com/p/word2vec/">Word2Vec</a> is the best solution of this problem now. But my poor english speaking could not match either my confidence or LSI’s power, my explanation of LSI was so terrible that someone gave me a few hints very politely and cryptically. </p>
+
+<p>I felt sorry for LSI, it was not its fault that I didn’t present it in a proper way. Thanks to <a href="http://www.meetup.com/Natural-Language-Processing-in-NZ/members/11036321/">Alyona</a> and everyone in the meetup, I appreciate the opportunity to meet nice people and interesting ideas there. So, I’d like to explain myself again.</p>
+
+<p>We have been trying to build different models of natural language. The problem of querying natural language dataset is the problem of how to build a model which could interpret a query into results. The question raised at last meetup was how to build such a model which can extract information from natural language dataset based on specific syntactic structure and some specific semantics.</p>
+
+<p>We have plenty natural language parsers now, so I guess syntactic structure is not the problem here.</p>
+
+<p>As for semantics, there are some rule-based approach, such as, <a href="http://en.wikipedia.org/wiki/WordNet">WordNet</a> , <a href="http://en.wikipedia.org/wiki/FrameNet">FrameNet</a>,  however, I found it was difficult to map a word to similar words in semantics because a word usaually has multiple meanings, and there is no way to find the right semantics of a word in a specific context with these approach. And you could end up with different results with different meaning of a word. Furthermore, there is not any threshold which can determine how far you can go in a WordNet graph, at least not in a mathematically decidable way.</p>
+
+<p>LSI is a tool of finding similarity among documents, it stems from <a href="http://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a>. After mapping all documents into a space,  we could find similarities between documents in different dimension.  And of course we can get a distance between any two words in a specific dimension.</p>
+
+<p><a href="https://code.google.com/p/word2vec/">Word2Vec</a>  is based on the same idea but the algorithm is different.</p>
+
+<p>With these tools, by training a model with a dataset of some topics, we can determine the distance of any two words in a specific dataset(or topic) with this model. Then we can map a query into a set of sentences with this similarity or distance in respect to the specific topic.</p>
+
+<p>LSI or similar algorithm is actually another piece of the puzzle.</p>
+
+<p>’'’Note’’’
+We still have to deal with the problem of how to model multi meanings of a word</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">alex</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-08-25T22:54:41+12:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:54 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/godel/blog/categories/lsi/'>lsi</a>, <a class='category' href='/godel/blog/categories/natural-language-processing/'>natural language processing</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://github.com/macezx/godel/blog/2014/08/25/lsi/" data-via="" data-counturl="https://github.com/macezx/godel/blog/2014/08/25/lsi/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/godel/blog/2014/08/25/kolmogorov-complexity/" title="Previous Post: Kolmogorov复杂性">&laquo; Kolmogorov复杂性</a>
+      
+      
+        <a class="basic-alignment right" href="/godel/blog/2014/08/25/matrix/" title="Next Post: Matrix">Matrix &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/matrix/">Matrix</a>
+      </li>
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/lsi/">LSI</a>
+      </li>
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/kolmogorov-complexity/">Kolmogorov复杂性</a>
+      </li>
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/halting-problem/">Halting Problem</a>
+      </li>
+    
+      <li class="post">
+        <a href="/godel/blog/2014/08/25/ge-de-er-bian-hao/">哥德尔编号</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - alex -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
